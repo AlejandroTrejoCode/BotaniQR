@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="cardview_height">200dp</dimen>
+    <dimen name="cardview_radius">10dp</dimen>
+
+    <!-- BottomBar -->
+    <dimen name="bottombar_height">70dp</dimen>
+
+    <!-- Margins & Paddings-->
+    <dimen name="padding">16dp</dimen>
+    <dimen name="margin">16dp</dimen>
+
+    <!-- Fonts Size -->
+    <dimen name="title_card">24sp</dimen>
+    <dimen name="ctitle_card">16sp</dimen>
+</resources>
