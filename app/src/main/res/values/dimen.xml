@@ -7,9 +7,14 @@
 
     <!-- Margins & Paddings-->
     <dimen name="padding">16dp</dimen>
+    <dimen name="paddingTopBottom">8dp</dimen>
     <dimen name="margin">16dp</dimen>
 
     <!-- Fonts Size -->
     <dimen name="title_card">24sp</dimen>
     <dimen name="ctitle_card">16sp</dimen>
+
+    <dimen name="TextLarge">24sp</dimen>
+    <dimen name="TextMedium">20sp</dimen>
+
 </resources>

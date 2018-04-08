@@ -3,12 +3,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/red"
     tools:context=".view.view.fragments.ReportFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:padding="@dimen/padding">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/paddingTopBottom"
+            android:text="Reportar Anomalía"
+            android:textColor="@color/white"
+            android:textSize="@dimen/TextLarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ayúdanos a conservalo"
+            android:textColor="@color/white"
+            android:textSize="@dimen/TextMedium" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            android:layout_marginTop="@dimen/margin"
+            app:hintTextAppearance="@style/AppTheme.FloatingLabelReport">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="¿Qué ocurrió?"
+                android:singleLine="false"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextReports" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/white"
+            android:layout_marginTop="@dimen/margin"
+            app:hintTextAppearance="@style/AppTheme.FloatingLabelReport">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="¿En que lugar ocurrió?"
+                android:singleLine="false"
+                android:textColor="@color/white"
+                android:theme="@style/EditTextReports" />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/adjuntarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:contentDescription="Adjuntar"
+                android:padding="@dimen/padding"
+                android:src="@drawable/ic_adjuntar" />
+
+            <TextView
+                android:id="@+id/AdjuntarTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:padding="@dimen/padding"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:text="No hay imagen adjunta" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sendReport"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@color/teal"
+            android:text="Enviar"
+            android:layout_marginTop="@dimen/margin"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
 </FrameLayout>
