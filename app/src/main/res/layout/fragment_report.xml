@@ -40,6 +40,7 @@
             app:hintTextAppearance="@style/AppTheme.FloatingLabelReport">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/messageReport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="¿Qué ocurrió?"
@@ -56,6 +57,7 @@
             app:hintTextAppearance="@style/AppTheme.FloatingLabelReport">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/placeReport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="¿En que lugar ocurrió?"
