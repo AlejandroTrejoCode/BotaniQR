@@ -1,13 +1,20 @@
 package com.verde.upqroo.verdesuperior.view.view.fragments;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,21 +23,20 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.verde.upqroo.verdesuperior.R;
-
-import static android.app.Activity.RESULT_OK;
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ReportFragment extends Fragment {
 
-    String to, subject, message, place, attachment;
-    Uri URI = null;
-    private static final int PICK_FROM_GALLERY = 101;
-    int columnIndex;
+    String subject, message, place, attachment;
+    public String[] to = {"info@upqroo.edu.mx"};
     TextInputEditText messageReport, placeReport;
+    public static String networkErrorMessage = "Sin Conexión a Internet";
+    public static boolean checkInternetConnection = true;
+    public static boolean showErrorMessage = true;
 
     public ReportFragment() {
 
@@ -53,7 +59,14 @@ public class ReportFragment extends Fragment {
         adjuntarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFolder();
+                try {
+                    subject = "REPORTE ANOMALIA HUERTO";
+                    message = messageReport.getText().toString()  + placeReport.getText().toString();
+                    to[0] = "info@upqroo.edu.mx";
+                    browseDocuments();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -61,60 +74,101 @@ public class ReportFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getContext(), "COMPRUEBA EL MENSAJE", Toast.LENGTH_SHORT).show();
-                sendEmail();
             }
         });
-
         return view;
-
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-            Cursor cursor = getActivity().getContentResolver().query(selectedImage,filePathColumn, null, null, null);
-            cursor.moveToFirst();
-            columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            attachment = cursor.getString(columnIndex);
-            Log.e("Attachment Path:", attachment);
-            URI = Uri.parse("file://" + attachment);
-            cursor.close();
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 100:
+                if (resultCode == Activity.RESULT_OK && data != null) {
+                    Uri uri = data.getData();
+                    sendMail(this.getContext(), to[0], subject, message, null, uri);
+                    messageReport.setText("");
+                    placeReport.setText("");
+                }
+                break;
         }
     }
 
-    public void sendEmail()
-    {
-        try
-        {
-            to = "alejandrotrejocode@gmail.com";
-            subject = "REPORTE DE ANOMALIA HUERTO";
-            message = messageReport.getText().toString();
-            final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-            emailIntent.setType("plain/text");
-            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,new String[] { to });
-            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,subject);
-            if (URI != null) {
-                emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
+    private void browseDocuments() {
+
+        String[] mimeTypes = {"image/jpeg", "image/png", "image/gif"};
+
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
+            if (mimeTypes.length > 0) {
+                intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
             }
-            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
-            this.startActivity(Intent.createChooser(emailIntent,"Enviando Correo..."));
+        } else {
+            String mimeTypesStr = "";
+            for (String mimeType : mimeTypes) {
+                mimeTypesStr += mimeType + "|";
+            }
+            intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
         }
-        catch (Throwable t)
-        {
-            Toast.makeText(getContext(), "Error: Código : " + t.toString(),Toast.LENGTH_LONG).show();
-        }
+        startActivityForResult(Intent.createChooser(intent, "ChooseFile"), 100);
     }
 
-
-    public void openFolder()
-    {
+    public void sendMail(Context context, String to, String subject, String message, File attachment, Uri uri) {
         Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        intent.putExtra("return-data", true);
-        startActivityForResult(Intent.createChooser(intent, "Selecciona tu galería"), PICK_FROM_GALLERY);
+        intent.setAction(Intent.ACTION_SEND);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        // Need to grant this permission
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        // Attachment
+        intent.setType("vnd.android.cursor.dir/email");
+
+        if (attachment != null)
+            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(attachment));
+        else if (uri != null)
+            intent.putExtra(Intent.EXTRA_STREAM, uri);
+
+        if (!TextUtils.isEmpty(subject))
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+
+        intent.putExtra(Intent.EXTRA_EMAIL, "info@upqroo.edu.mx");
+
+        if (isNetworkAvailable(context)) {
+            if (isAppAvailable(context, "com.google.android.gm"))
+                intent.setPackage("com.google.android.gm");
+            startActivityForResult(intent, 101);
+        }
     }
 
+    public static Boolean isAppAvailable(Context context, String appName) {
+        PackageManager pm = context.getPackageManager();
+        boolean isInstalled;
+        try {
+            pm.getPackageInfo(appName,PackageManager.GET_ACTIVITIES);
+            isInstalled = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            isInstalled = false;
+        }
+        return isInstalled;
+    }
+
+
+    public static boolean isNetworkAvailable(Context context) {
+
+        if (checkInternetConnection) {
+            ConnectivityManager connectivityManager = (ConnectivityManager)
+                    context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
+            if (netInfo != null && netInfo.isConnectedOrConnecting())
+                return true;
+            else {
+                if (showErrorMessage)
+                    Toast.makeText(context, networkErrorMessage, Toast.LENGTH_SHORT).show();
+
+                return false;
+            }
+        } else
+            return true;
+    }
 }

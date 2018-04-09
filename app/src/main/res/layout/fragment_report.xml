@@ -90,7 +90,7 @@
                 android:padding="@dimen/padding"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                tools:text="No hay imagen adjunta" />
+                android:text="No hay imagen adjunta" />
         </LinearLayout>
 
         <Button
