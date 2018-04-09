@@ -1,5 +1,6 @@
 <resources>
     <dimen name="cardview_height">200dp</dimen>
+    <dimen name="banner_height">150dp</dimen>
     <dimen name="cardview_radius">10dp</dimen>
 
     <!-- BottomBar -->
@@ -8,13 +9,18 @@
     <!-- Margins & Paddings-->
     <dimen name="padding">16dp</dimen>
     <dimen name="paddingTopBottom">8dp</dimen>
-    <dimen name="margin">16dp</dimen>
+    <dimen name="margin">8dp</dimen>
 
     <!-- Fonts Size -->
     <dimen name="title_card">24sp</dimen>
     <dimen name="ctitle_card">16sp</dimen>
 
+    <dimen name="BannerTitle">24sp</dimen>
+    <dimen name="BannerCTitle">16sp</dimen>
+
     <dimen name="TextLarge">24sp</dimen>
     <dimen name="TextMedium">20sp</dimen>
+    <dimen name="TextNormal">16sp</dimen>
+    <dimen name="TextSmall">14sp</dimen>
 
 </resources>

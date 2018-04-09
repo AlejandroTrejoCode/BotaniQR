@@ -11,5 +11,7 @@
     <color name="red">#B71C1C</color>
     <color name="blue">#0D47A1</color>
     <color name="teal">#004d40</color>
+    <color name="background">#eaf2f5</color>
+    <color name="backgroundBanner">#f6f7f9</color>
 
 </resources>

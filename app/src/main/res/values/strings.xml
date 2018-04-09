@@ -10,4 +10,17 @@
     <string name="tab_camera">Escaner</string>
     <string name="tab_irrigation">Riego</string>
     <string name="tab_report">Reportar</string>
+
+    <!-- Banner -->
+    <string name="BannerTitle">Oregano Fránces</string>
+    <string name="BannerCTitle">Plectranthus amboinicus</string>
+
+    <string name="BannerDescription">Descripción</string>
+    <string name="BannerDescriptionContent">El orégano francés, tomillo español, menta mexicana , orégano brujo o borraja india (Plectranthus amboinicus) es una planta perenne de la familia Lamiaceae.</string>
+    <string name="BannerTaxonomia">Taxonomía</string>
+    <string name="BannerTaxonomiaContent">Reino: PlantaeSubreino: Tracheobionta División: Magnoliophyta Clase: Magnoliopsida Subclase: Asteridae</string>
+    <string name="BannerAplicacion">Aplicaciones</string>
+    <string name="BannerAplicacionContent">La medicina tradicional le ha atribuido al orégano francés diversas propiedades y lo ha usado, por ejemplo, para aliviar los ataques de epilepsia, como desinfectante, antimicótico y estimulante muscular. Recientemente se han multiplicado las investigaciones científicas sobre su acción y toxicidad. Se ha demostrado que tabletas 100 mg de P. amboinicus provocaron contracción de la musculatura lisa en cobayos.</string>
+
+
 </resources>

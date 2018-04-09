@@ -11,28 +11,28 @@
     <tab
         id="@+id/explore"
         title="@string/tab_explore"
-        barColorWhenSelected="@color/teal"
+        barColorWhenSelected="@color/lightGreen"
         icon="@drawable/ic_explore"
         />
 
     <tab
         id="@+id/camera"
         title="@string/tab_camera"
-        barColorWhenSelected="@color/black"
+        barColorWhenSelected="@color/lightGreen"
         icon="@drawable/ic_camera"
         />
 
     <tab
         id="@+id/irrigation"
         title="@string/tab_irrigation"
-        barColorWhenSelected="@color/blue"
+        barColorWhenSelected="@color/lightGreen"
         icon="@drawable/ic_water"
         />
 
     <tab
         id="@+id/report"
         title="@string/tab_report"
-        barColorWhenSelected="@color/red"
+        barColorWhenSelected="@color/lightGreen"
         icon="@drawable/ic_report"
         />
 
