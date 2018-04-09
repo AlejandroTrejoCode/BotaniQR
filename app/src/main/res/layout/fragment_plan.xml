@@ -20,7 +20,7 @@
             <RelativeLayout
                 android:id="@+id/BannerLayout"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/banner_height"
+                android:layout_height="@dimen/BannerImageHeigt"
                 android:orientation="vertical"
                 >
 

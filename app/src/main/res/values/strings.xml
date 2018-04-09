@@ -22,5 +22,10 @@
     <string name="BannerAplicacion">Aplicaciones</string>
     <string name="BannerAplicacionContent">La medicina tradicional le ha atribuido al orégano francés diversas propiedades y lo ha usado, por ejemplo, para aliviar los ataques de epilepsia, como desinfectante, antimicótico y estimulante muscular. Recientemente se han multiplicado las investigaciones científicas sobre su acción y toxicidad. Se ha demostrado que tabletas 100 mg de P. amboinicus provocaron contracción de la musculatura lisa en cobayos.</string>
 
+    <!-- Cards -->
+    <string name="CardTitle">Oregano Fránces</string>
+    <string name="CardCTitle">Plectranthus amboinicus</string>
+    <string name="CardRead">CONOCER MÁS</string>
+
 
 </resources>
