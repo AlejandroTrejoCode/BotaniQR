@@ -7,7 +7,10 @@
     android:orientation="vertical"
     tools:context=".view.view.fragments.ExploreFragment">
 
-    <include layout="@layout/card_general"/>
-    <include layout="@layout/card_general"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/explorerv"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

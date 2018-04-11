@@ -13,6 +13,8 @@ import com.verde.upqroo.verdesuperior.view.view.fragments.ReportFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final boolean LOLLIPOP_OR_HIGHER = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,42 +29,77 @@ public class MainActivity extends AppCompatActivity {
                 switch (tabId) {
                     case R.id.home:
                         HomeFragment homeFragment = new HomeFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, homeFragment)
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                                .addToBackStack(null).commit()
-                        ;
+                        if(LOLLIPOP_OR_HIGHER){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, homeFragment)
+                                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
+                        else{
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, homeFragment)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
                         break;
 
                     case R.id.explore:
                         ExploreFragment exploreFragment = new ExploreFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, exploreFragment)
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                                .addToBackStack(null).commit()
-                        ;
+                        if(LOLLIPOP_OR_HIGHER){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, exploreFragment)
+                                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
+                        else{
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, exploreFragment)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
                         break;
 
                     case R.id.camera:
                         CameraFragment cameraFragment = new CameraFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, cameraFragment)
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                                .addToBackStack(null).commit()
-                        ;
+                        if(LOLLIPOP_OR_HIGHER){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, cameraFragment)
+                                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
+                        else{
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, cameraFragment)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
                         break;
 
                     case R.id.irrigation:
                         IrrigationFragment irrigationFragment = new IrrigationFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, irrigationFragment)
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                                .addToBackStack(null).commit()
-                        ;
+                        if(LOLLIPOP_OR_HIGHER){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, irrigationFragment)
+                                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
+                        else{
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, irrigationFragment)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
                         break;
 
                     case R.id.report:
                         ReportFragment reportFragment = new ReportFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, reportFragment)
-                                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                                .addToBackStack(null).commit()
-                        ;
+                        if(LOLLIPOP_OR_HIGHER){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, reportFragment)
+                                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
+                        else{
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, reportFragment)
+                                    .addToBackStack(null).commit()
+                            ;
+                        }
                         break;
                 }
             }

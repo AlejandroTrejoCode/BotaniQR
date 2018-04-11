@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "744823096289",
+    "firebase_url": "https://viveros-test.firebaseio.com",
+    "project_id": "viveros-test",
+    "storage_bucket": "viveros-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744823096289:android:cd6df4c425f5eb78",
+        "android_client_info": {
+          "package_name": "com.verde.upqroo.verdesuperior"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744823096289-n79gc74hpvh2ipeuhse9eok7ii1elg6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPTe4qairDpFqJLRWDNEBKyDGBLitDElk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
