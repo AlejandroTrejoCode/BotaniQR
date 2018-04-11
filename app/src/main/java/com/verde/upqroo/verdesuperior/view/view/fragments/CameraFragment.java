@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.SparseArrayCompat;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
@@ -19,10 +20,18 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.Result;
 import com.verde.upqroo.verdesuperior.R;
+import com.verde.upqroo.verdesuperior.view.view.InformacionPlanta;
+import com.verde.upqroo.verdesuperior.view.view.VerdeSuperiorApplication;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -62,7 +71,30 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
 
     @Override
     public void handleResult(Result result) {
-        Toast.makeText(getContext(),result.getText(),Toast.LENGTH_SHORT).show();
+
+        final DatabaseReference database = VerdeSuperiorApplication.FirebaseReference.child("informacion_plantas").child(result.getText());
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot != null) {
+                    HashMap<String, String> planta = (HashMap<String, String>) dataSnapshot.getValue();
+                    Intent i = new Intent(getContext(), InformacionPlanta.class);
+                    i.putExtra(InformacionPlanta.NOMBRE, planta.get("nombre"));
+                    i.putExtra(InformacionPlanta.NOMBRE_CIENTIFICO, planta.get("cientifico"));
+                    i.putExtra(InformacionPlanta.IMAGEN_URL, planta.get("url"));
+                    i.putExtra(InformacionPlanta.DESCRIPCION, planta.get("descripcion"));
+                    i.putExtra(InformacionPlanta.TAXONOMIA, planta.get("taxonomia"));
+                    i.putExtra(InformacionPlanta.APLICACIONES, planta.get("aplicaciones"));
+                    startActivity(i);
+                }
+                else Toast.makeText(getContext(),"Codigo QR invalido", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         mScannerView.resumeCameraPreview(this);
     }
 

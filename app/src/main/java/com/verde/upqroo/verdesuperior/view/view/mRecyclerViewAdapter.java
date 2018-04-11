@@ -71,12 +71,12 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context,InformacionPlanta.class);
-                    i.putExtra(InformacionPlanta.NOMBRE,p.getNombre());
-                    i.putExtra(InformacionPlanta.NOMBRE_CIENTIFICO,p.getNombre_cientifico());
-                    i.putExtra(InformacionPlanta.IMAGEN_URL,p.getImagen_url());
-                    i.putExtra(InformacionPlanta.DESCRIPCION,p.getDescripcion());
-                    i.putExtra(InformacionPlanta.TAXONOMIA,p.getTaxonomia());
-                    i.putExtra(InformacionPlanta.APLICACIONES,p.getAplicaciones());
+                        i.putExtra(InformacionPlanta.NOMBRE,p.getNombre());
+                        i.putExtra(InformacionPlanta.NOMBRE_CIENTIFICO,p.getNombre_cientifico());
+                        i.putExtra(InformacionPlanta.IMAGEN_URL,p.getImagen_url());
+                        i.putExtra(InformacionPlanta.DESCRIPCION,p.getDescripcion());
+                        i.putExtra(InformacionPlanta.TAXONOMIA,p.getTaxonomia());
+                        i.putExtra(InformacionPlanta.APLICACIONES,p.getAplicaciones());
 
                     context.startActivity(i);
                 }
