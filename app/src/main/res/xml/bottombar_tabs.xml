@@ -23,10 +23,10 @@
         />
 
     <tab
-        id="@+id/irrigation"
-        title="@string/tab_irrigation"
+        id="@+id/notices"
+        title="@string/tab_notices"
         barColorWhenSelected="@color/lightGreen"
-        icon="@drawable/ic_water"
+        icon="@drawable/ic_notices"
         />
 
     <tab

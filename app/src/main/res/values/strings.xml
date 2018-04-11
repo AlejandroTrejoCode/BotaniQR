@@ -10,6 +10,7 @@
     <string name="tab_camera">Escaner</string>
     <string name="tab_irrigation">Riego</string>
     <string name="tab_report">Reportar</string>
+    <string name="tab_notices">Noticias</string>
 
     <!-- Banner -->
     <string name="BannerTitle">Oregano Fránces</string>

@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
 
-                    case R.id.irrigation:
+                    case R.id.notices:
                         IrrigationFragment irrigationFragment = new IrrigationFragment();
                         if(LOLLIPOP_OR_HIGHER){
                             getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, irrigationFragment)
