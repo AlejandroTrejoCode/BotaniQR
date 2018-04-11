@@ -49,10 +49,8 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mScannerView = new ZXingScannerView(getActivity());
         pedirPermiso();
-        if(mScannerView==null){
-            mScannerView = new ZXingScannerView(getActivity());
-        }
         return mScannerView;
     }
 
@@ -71,7 +69,7 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
 
     @Override
     public void handleResult(Result result) {
-
+        mScannerView.stopCamera();
         final DatabaseReference database = VerdeSuperiorApplication.FirebaseReference.child("informacion_plantas").child(result.getText());
         database.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -118,6 +116,7 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
                         CAMERA_PERMISSION);
             }
         }
+        else inicializarCAMARA();
     }
 
 
@@ -145,6 +144,6 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
 
 
     public void inicializarCAMARA(){
-        mScannerView = new ZXingScannerView(getActivity());
+        mScannerView.startCamera();
     }
 }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "744823096289-mminlkefmaivbnmqfjl536bqel5u2c91.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.verde.upqroo.verdesuperior",
+            "certificate_hash": "3bb7609a8c5c9bc016090d63771a878391dec6a1"
+          }
+        },
+        {
           "client_id": "744823096289-n79gc74hpvh2ipeuhse9eok7ii1elg6k.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "744823096289-n79gc74hpvh2ipeuhse9eok7ii1elg6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
