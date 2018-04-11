@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/paddingTopBottom"
             android:text="Reportar Anomalía"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/TextLarge"
             android:textStyle="bold" />
 
@@ -28,13 +28,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ayúdanos a conservalo"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/TextMedium" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:layout_marginTop="@dimen/margin"
             app:hintTextAppearance="@style/AppTheme.FloatingLabelReport">
 
@@ -44,14 +44,14 @@
                 android:layout_height="wrap_content"
                 android:hint="¿Qué ocurrió?"
                 android:singleLine="false"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:theme="@style/EditTextReports" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
+            android:textColorHint="@color/black"
             android:layout_marginTop="@dimen/margin"
             app:hintTextAppearance="@style/AppTheme.FloatingLabelReport">
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:hint="¿En que lugar ocurrió?"
                 android:singleLine="false"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:theme="@style/EditTextReports" />
         </android.support.design.widget.TextInputLayout>
 
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:background="@color/darkGreen"
                 android:contentDescription="Adjuntar"
                 android:padding="@dimen/padding"
                 android:src="@drawable/ic_adjuntar" />
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:padding="@dimen/padding"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 android:text="No hay imagen adjunta" />
         </LinearLayout>
