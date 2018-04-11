@@ -8,7 +8,7 @@ import com.verde.upqroo.verdesuperior.R;
 import com.verde.upqroo.verdesuperior.view.view.fragments.CameraFragment;
 import com.verde.upqroo.verdesuperior.view.view.fragments.ExploreFragment;
 import com.verde.upqroo.verdesuperior.view.view.fragments.HomeFragment;
-import com.verde.upqroo.verdesuperior.view.view.fragments.IrrigationFragment;
+import com.verde.upqroo.verdesuperior.view.view.fragments.NewsFragment;
 import com.verde.upqroo.verdesuperior.view.view.fragments.ReportFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -73,15 +73,15 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.notices:
-                        IrrigationFragment irrigationFragment = new IrrigationFragment();
+                        NewsFragment newsFragment = new NewsFragment();
                         if(LOLLIPOP_OR_HIGHER){
-                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, irrigationFragment)
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, newsFragment)
                                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                                     .addToBackStack(null).commit()
                             ;
                         }
                         else{
-                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, irrigationFragment)
+                            getSupportFragmentManager().beginTransaction().replace(R.id.FragmentsContainer, newsFragment)
                                     .addToBackStack(null).commit()
                             ;
                         }

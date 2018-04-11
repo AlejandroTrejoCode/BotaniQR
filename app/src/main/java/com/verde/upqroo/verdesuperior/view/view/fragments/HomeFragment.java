@@ -39,39 +39,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        PlantasInit(getContext());
         View layout = inflater.inflate(R.layout.fragment_home, container, false);
-        rv = layout.findViewById(R.id.homerv);
-        rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayout.VERTICAL,false));
         return layout;
-    }
-
-    public void PlantasInit(final Context context){
-        Plantas = new ArrayList<>();
-        DatabaseReference FBplantass = VerdeSuperiorApplication.FirebaseReference.child("informacion_plantas");
-        FBplantass.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                HashMap<String,HashMap> plantasReciver;
-                plantasReciver = (HashMap) dataSnapshot.getValue();
-                for (HashMap<String,String> planta: plantasReciver.values()) {
-                    Plantas.add(new Planta(
-                            planta.get("nombre"),
-                            planta.get("cientifico"),
-                            planta.get("descripcion"),
-                            planta.get("taxonomia"),
-                            planta.get("aplicaciones"),
-                            planta.get("url")
-                    ));
-                }
-                mRecyclerViewAdapter recyclerviewadapter = new mRecyclerViewAdapter(Plantas,context);
-                rv.setAdapter(recyclerviewadapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 }

@@ -12,10 +12,10 @@ import com.verde.upqroo.verdesuperior.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class IrrigationFragment extends Fragment {
+public class NewsFragment extends Fragment {
 
 
-    public IrrigationFragment() {
+    public NewsFragment() {
         // Required empty public constructor
     }
 
