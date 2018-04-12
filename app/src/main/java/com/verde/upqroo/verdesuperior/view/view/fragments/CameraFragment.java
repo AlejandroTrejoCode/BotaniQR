@@ -58,7 +58,7 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
     public void onResume() {
         super.onResume();
         mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
-        mScannerView.startCamera();          // Start camera on resume
+        mScannerView.resumeCameraPreview(this);       // Start camera on resume
     }
 
     @Override
@@ -118,8 +118,6 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
         }
         else inicializarCAMARA();
     }
-
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode,

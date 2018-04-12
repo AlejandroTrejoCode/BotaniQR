@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.verde.upqroo.verdesuperior.R;
 import com.verde.upqroo.verdesuperior.view.view.VerdeSuperiorApplication;
@@ -49,7 +50,7 @@ public class ExploreFragment extends Fragment {
 
     public void PlantasInit(final Context context){
         Plantas = new ArrayList<>();
-        DatabaseReference FBplantass = VerdeSuperiorApplication.FirebaseReference.child("informacion_plantas");
+        Query FBplantass = VerdeSuperiorApplication.FirebaseReference.child("informacion_plantas").orderByKey();
         FBplantass.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -65,7 +66,7 @@ public class ExploreFragment extends Fragment {
                             planta.get("url")
                     ));
                 }
-                mRecyclerViewAdapter recyclerviewadapter = new mRecyclerViewAdapter(Plantas,context);
+                mRecyclerViewAdapter recyclerviewadapter = new mRecyclerViewAdapter(Plantas,context,mRecyclerViewAdapter.PLANTAS);
                 rv.setAdapter(recyclerviewadapter);
             }
 

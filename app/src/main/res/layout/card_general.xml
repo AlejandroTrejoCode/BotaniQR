@@ -10,7 +10,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:padding="10dp">
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:padding="5dp"
+        android:paddingBottom="5dp">
 
         <ImageView
             android:id="@+id/pictureCard"
