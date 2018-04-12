@@ -27,7 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.view.InformacionPlanta"></activity>
+        <activity android:name=".view.view.InformacionPlanta" />
+        <activity android:name=".view.view.InformacionNoticias"></activity>
     </application>
 
 </manifest>
