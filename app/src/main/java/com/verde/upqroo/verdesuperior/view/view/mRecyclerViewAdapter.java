@@ -156,6 +156,17 @@ public class mRecyclerViewAdapter extends RecyclerView.Adapter<mRecyclerViewAdap
                     n.getDescripcion().length() >= 20 ? n.getDescripcion().substring(0,20)+"..." : n.getDescripcion()
             );
             Glide.with(context).load(n.getUrl()).into(Background);
+
+            More.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context,InformacionNoticias.class);
+                    i.putExtra(InformacionNoticias.NOMBRE,n.getNombre());
+                    i.putExtra(InformacionNoticias.DESCRIPCION,n.getDescripcion());
+                    i.putExtra(InformacionNoticias.IMAGEN_URL,n.getUrl());
+                    context.startActivity(i);
+                }
+            });
         }
     }
 }
