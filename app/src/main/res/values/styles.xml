@@ -14,12 +14,12 @@
     </style>
 
     <style name="AppTheme.FloatingLabelReport" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="EditTextReports" parent="AppTheme">
-        <item name="colorControlNormal">@color/white</item>
-        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlNormal">@color/darkGreen</item>
+        <item name="colorControlActivated">@color/darkGreen</item>
     </style>
 
 </resources>
